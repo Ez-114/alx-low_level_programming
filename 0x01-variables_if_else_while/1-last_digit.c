@@ -26,7 +26,7 @@ int main(void)
 	}
 	else if (last_digit == 0)
 	{
-		puts("is 0");
+		puts("0");
 	}
 
 	return (0);
