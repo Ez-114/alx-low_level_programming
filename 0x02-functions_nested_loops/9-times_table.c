@@ -1,5 +1,9 @@
 #include "main.h"
 
+/**
+  * times_table - prints times table from 0 table till 9 table
+  */
+
 void times_table(void)
 {
 	int i = 0, j = 0, result;
@@ -29,7 +33,7 @@ void times_table(void)
 				if (((j + 1) * i) <= 9)
 				{
 					_putchar(' ');
-				}	
+				}
 			}
 
 			j++;
