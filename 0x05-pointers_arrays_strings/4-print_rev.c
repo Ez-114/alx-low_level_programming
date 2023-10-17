@@ -9,17 +9,16 @@ void print_rev(char *s)
 {
 	int i = 0;
 
-	/* to get the size of the array of characters */
-	while (*(s + i) != '\0')
+	while (s[i])
 	{
 		i++;
 	}
 
-	/* now go from i to 0 to print in reverse where i is the number of chars */
-	while (i >= 0)
+	while (i)
 	{
-		_putchar(*(s + i));
+		_putchar(s[i]);
 		i--;
 	}
+
 	_putchar('\n');
 }
