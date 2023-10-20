@@ -9,7 +9,15 @@ void print_times_table(int n)
 	int rows, cols, result;
 
 	if (n > 15 || n < 0)
+	{
 		return;
+	}
+	else if (n == 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return;
+	}
 
 	rows = result = 0;
 	while (rows <= n)
@@ -62,7 +70,6 @@ void print_times_table(int n)
 				if (cols != n)
 					_putchar(',');
 			}
-
 			cols++;
 		}
 		_putchar('\n');
