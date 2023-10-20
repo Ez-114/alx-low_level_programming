@@ -10,10 +10,7 @@ void multiples(int n);
 
 int main(void)
 {
-	int n = 0;
-
-	scanf("%d", &n);
-	multiples(n);
+	multiples(1023);
 
 	return (0);
 }
@@ -27,7 +24,7 @@ void multiples(int n)
 {
 	int i, sum = 0;
 
-	if (n == 1024)
+	if (n >= 1024)
 	{
 		return;
 	}
