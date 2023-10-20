@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	print_times_table(12);
+	print_times_table(100);
 
 	/**
 	 *  _putchar('\n');
