@@ -10,7 +10,7 @@ void print_times_table(int n)
 
 	if (n > 15 || n < 0)
 		return;
-		
+
 	rows = result = 0;
 	while (rows <= n)
 	{
@@ -68,6 +68,4 @@ void print_times_table(int n)
 		_putchar('\n');
 		rows++;
 	}
-
-	_putchar('\n');
 }
