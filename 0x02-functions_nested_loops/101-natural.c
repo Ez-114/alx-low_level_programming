@@ -1,20 +1,5 @@
 #include <stdio.h>
 
-void multiples(int n);
-
-/**
- * main - test a function
- *
- * Return: 0 (Success)
-*/
-
-int main(void)
-{
-	multiples(5);
-
-	return (0);
-}
-
 /**
  * multiples - prints sum of multiples of 5 and 3
  * @n: integer
