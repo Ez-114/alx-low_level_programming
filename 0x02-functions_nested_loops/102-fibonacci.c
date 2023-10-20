@@ -8,20 +8,27 @@
 
 int main(void)
 {
-	int fabon = 1, i;
+	int i;
+	unsigned long fibon1 = 0, fibon2 = 1, sum;
 
-	for (i = 0; i <= 50; i++)
+	for (i = 0; i < 50; i++)
 	{
-		fabon += i;
-		if (i != 50)
+		sum = fibon1 + fibon2;
+		printf("%lu", sum);
+
+		fibon1 = fibon2;
+		fibon2 = sum;
+
+		if (i == 49)
 		{
-			printf("%d, ", fabon);
+			printf("\n");
 		}
 		else
 		{
-			printf("%d", fabon);
+			printf(", ");
 		}
 	}
+
 	printf("\n");
 
 	return (0);
