@@ -8,7 +8,7 @@
 */
 int main(void)
 {
-	printf("%d\n", _isdigit('b'));
+	printf("%d\n", mul(3, 4));
 
 	return (0);
 }
