@@ -8,7 +8,7 @@
 */
 int main(void)
 {
-	printf("%d\n", mul(3, 4));
+	print_numbers();
 
 	return (0);
 }
