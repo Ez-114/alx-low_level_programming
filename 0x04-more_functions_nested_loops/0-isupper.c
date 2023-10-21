@@ -1,5 +1,5 @@
 /**
- * isupper - check if the given char is an upper alpha
+ * _isupper - check if the given char is an upper alpha
  * @c: input char
  *
  * Return: 1 (Success) 0 (Fail)
