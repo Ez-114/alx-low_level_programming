@@ -15,7 +15,6 @@ char *_strcpy(char *dest, char *src)
 
 	if (srcSize <= 0)
 	{
-		printf("\n");
 		return ("");
 	}
 
