@@ -21,7 +21,7 @@ char *_strncat(char *dest, char *src, int n)
 
 	for (i = 0; i <= n; i++)
 	{
-		dest[len + i - 1] = src[i];
+		dest[len + i] = src[i];
 
 		/* terminate in case of no more to cpy */
 		if (src[i] == '\0')
