@@ -11,7 +11,7 @@
 char *_strncat(char *dest, char *src, int n)
 {
 	/* get length of dest to start copying from end of string */
-	int i, len = strlen(dest) + 1;
+	int i, len = strlen(dest);
 
 	/* check if n + len < size of dest */
 	if (n <= 0)
@@ -21,7 +21,7 @@ char *_strncat(char *dest, char *src, int n)
 
 	for (i = 0; i <= n; i++)
 	{
-		dest[len + i] = src[i];
+		dest[len + i - 1] = src[i];
 
 		/* terminate in case of no more to cpy */
 		if (src[i] == '\0')
