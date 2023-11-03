@@ -3,7 +3,7 @@
 /**
   * _strncat - copy string from src to dest till nth byte
   * @dest: destenation string
-  * @src: source stirng 
+  * @src: source stirng
   * @n: nth byte
   *
   * Return: pointer to dest
@@ -15,10 +15,6 @@ char *_strncat(char *dest, char *src, int n)
 
 	/* check if n + len < size of dest */
 	if (n <= 0)
-	{
-		return (dest);
-	}
-	else if (!((n + (int)len - 1) < sizeof(dest)))
 	{
 		return (dest);
 	}
