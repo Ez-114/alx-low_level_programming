@@ -18,7 +18,7 @@ char *_strncat(char *dest, char *src, int n)
 	{
 		return (dest);
 	}
-	else if (!((n + len - 1) < sizeof(dest)))
+	else if (!((n + (int)len - 1) < sizeof(dest)))
 	{
 		return (dest);
 	}
