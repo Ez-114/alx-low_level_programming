@@ -12,7 +12,7 @@ char *leet(char *str)
 	int number[] = {4, 4, 3, 3, 0, 0, 7, 7, 1, 1};
 	int i;
 
-	while (*str != '0')
+	while (*str != '\0')
 	{
 		for (i = 0; i < 10; i++)
 		{
