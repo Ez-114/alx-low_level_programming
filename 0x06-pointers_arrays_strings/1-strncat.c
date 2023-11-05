@@ -19,15 +19,10 @@ char *_strncat(char *dest, char *src, int n)
 		return (dest);
 	}
 
-	for (i = 0; i <= n; i++)
+	for (i = 0; i <= n && src[i] != '\0'; i++)
 	{
 		dest[len + i] = src[i];
-
-		/* terminate in case of no more to cpy */
-		if (src[i] == '\0')
-		{
-			return (dest);
-		}
 	}
+	dest[len + i] = '\0';
 	return (dest);
 }
