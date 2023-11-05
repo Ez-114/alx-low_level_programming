@@ -7,22 +7,20 @@
 char *rot13(char *str)
 {
 	char *ptr = str;
-	char base;
-	int offset = 13;
+	char in13[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm"
+	int i;
 
 	while (*str != '\0')
 	{
-		if (*str >= 'a' && *str <= 'z')
+		for (i = 0; i < 52; i++)
 		{
-			base = 'a';
+			if (*s == in13[i])
+			{
+				*s = out13[i];
+				break;
+			}
 		}
-		else if (*str >= 'A' && *str <= 'Z')
-		{
-			base = 'A';
-		}
-
-		*str = ((*str - base + offset) % 26) + base;
-
 		str++;
 	}
 	return (ptr);
