@@ -9,7 +9,7 @@ char *leet(char *str)
 {
 	char *ptr = str;
 	char letter[] = {'A', 'a', 'E', 'e', 'O', 'o', 'T', 't', 'L', 'l'};
-	int number[] = {4, 4, 3, 3, 0, 0, 7, 7, 1, 1};
+	int number[] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
 	int i;
 
 	while (*str != '\0')
