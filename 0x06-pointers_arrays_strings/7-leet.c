@@ -12,6 +12,11 @@ char *leet(char *str)
 	int val[] = {4, 3, 0, 7, 1};
 	unsigned int i;
 
+	if (*str == "")
+	{
+		return (ptr);
+	}
+
 	while (*str != '0')
 	{
 		for (i = 0; i < sizeof(key) / sizeof(char); i++)
