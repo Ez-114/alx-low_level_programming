@@ -8,26 +8,21 @@
 char *leet(char *str)
 {
 	char *ptr = str;
-	char key[] = {'A', 'E', 'O', 'T', 'L'};
-	int val[] = {4, 3, 0, 7, 1};
-	unsigned int i;
-
-	if (*str == "")
-	{
-		return (ptr);
-	}
+	char letter[] = {'A', 'a', 'E', 'e', 'O', 'o', 'T', 't', 'L', 'l'};
+	int number[] = {4, 4, 3, 3, 0, 0, 7, 7, 1, 1};
+	int i;
 
 	while (*str != '0')
 	{
-		for (i = 0; i < sizeof(key) / sizeof(char); i++)
+		for (i = 0; i < 10; i++)
 		{
-			if (*str == key[i] || *str == key[i] + 32)
+			if (*str == letter[i])
 			{
-				*str = 48 + val[i];
+				*str = number[i];
+				break;
 			}
 		}
 		str++;
 	}
 	return (ptr);
 }
-
