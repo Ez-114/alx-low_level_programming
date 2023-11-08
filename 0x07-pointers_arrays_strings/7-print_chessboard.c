@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * print_chessboard - a function that prints the chessboard.
  * @a: pointer to a 2D array
@@ -10,7 +12,7 @@ void print_chessboard(char (*a)[8])
 	{
 		for (col = 0; col < 8; col++)
 		{
-			printf("%s", a[row][col]);
+			printf("%c", a[row][col]);
 		}
 		printf("\n");
 	}
