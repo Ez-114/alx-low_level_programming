@@ -10,7 +10,7 @@ int main(void)
 {
 	int n = 0;
 
-    n = _strlen_recursion("Hello");
+    n = factorial(-4);
 	printf("%d\n", n);
 
     return (0);
