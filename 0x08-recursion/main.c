@@ -10,7 +10,7 @@ int main(void)
 {
 	int n = 0;
 
-    n = factorial(-4);
+    n = _pow_recursion(0, 3);
 	printf("%d\n", n);
 
     return (0);
