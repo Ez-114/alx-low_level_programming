@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
 * main - check the code
@@ -7,6 +8,10 @@
 */
 int main(void)
 {
-    _print_rev_recursion("\nHello");
+	int n = 0;
+
+    n = _strlen_recursion("Hello");
+	printf("%d\n", n);
+
     return (0);
 }
