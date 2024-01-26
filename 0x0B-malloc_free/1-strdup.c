@@ -31,7 +31,7 @@ char *_strdup(char *str)
 	char *cpy_str;
 
 	/* Check the str if empty */
-	if (str == NULL || *str == '\0')
+	if (str == NULL)
 		return (NULL);
 
 	size = get_size(str);
