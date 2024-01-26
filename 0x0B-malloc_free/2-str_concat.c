@@ -41,9 +41,9 @@ char *str_concat(char *s1, char *s2)
 		strc[i] = s1[i];
 
 	for (i = 0; s2[i] != '\0'; i++)
-		strc[(i + s1_size) - 1] = s2[i];
+		strc[i + s1_size] = s2[i];
 
-	strc[(s1_size + s2_size) - 1] = '\0';
+	strc[s1_size + s2_size] = '\0';
 
 	return (strc);
 }
