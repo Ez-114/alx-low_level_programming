@@ -15,7 +15,7 @@ int get_size(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		i++;
 
-	return (i);
+	return (i + 1);
 }
 
 /**
