@@ -12,7 +12,7 @@ int get_size(char *str)
 	while (str[i] != '\0')
 		i++;
 
-	return (i + 1);
+	return (i);
 }
 
 /**
@@ -33,7 +33,7 @@ char *str_concat(char *s1, char *s2)
 
 	s1_size = get_size(s1);
 	s2_size = get_size(s2);
-	strc = malloc((s1_size + s2_size) * sizeof(char));
+	strc = malloc((s1_size + s2_size) * sizeof(char) + 1);
 	if (strc == NULL)
 		return (NULL);
 
