@@ -16,4 +16,6 @@ struct dog
 	char *owner;
 };
 
+void init_dog(char *, float, char *);
+
 #endif
