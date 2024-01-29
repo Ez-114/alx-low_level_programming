@@ -16,6 +16,32 @@ int _strlen(char *str)
 }
 
 /**
+ * _strcpy - copies the string pointed to by src
+ * @dest: the buffer pointed to
+ * @src: src string
+ *
+ * Return: the pointer to dest
+*/
+char *_strcpy(char *dest, char *src)
+{
+	int srcSize = _strlen(src), i = 0;
+
+	if (srcSize == 0)
+	{
+		return ("");
+	}
+
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+
+	return (dest);
+}
+
+/**
 * new_dog - create new dog structure
 * @name: dog name
 * @age: dog age
@@ -49,8 +75,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	d->name = name;
+	d->name = _strcpy(d->name, name);
 	d->age = age;
-	d->owner = owner;
+	d->owner = _strcpy(d->owner, owner);
 	return (d);
 }
