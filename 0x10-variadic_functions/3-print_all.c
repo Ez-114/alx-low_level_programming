@@ -39,14 +39,11 @@ void print_str(char *separator, va_list ap)
 {
 	char *s = va_arg(ap, char *);
 
-	if (s == NULL)
-	{
-		printf("%s(nil)", separator);
-	}
-	else
-	{
-		printf("%s%s", separator, s);
-	}
+	switch ((int)(!str))
+		case 1:
+			s = "(nil)";
+
+	printf("%s%s", separator, s);
 }
 
 /**
