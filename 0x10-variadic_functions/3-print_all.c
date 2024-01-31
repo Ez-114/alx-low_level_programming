@@ -39,7 +39,7 @@ void print_str(char *separator, va_list ap)
 {
 	char *s = va_arg(ap, char *);
 
-	switch ((int)(!str))
+	switch ((int)(!s))
 		case 1:
 			s = "(nil)";
 
