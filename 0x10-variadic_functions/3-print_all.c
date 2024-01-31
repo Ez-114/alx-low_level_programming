@@ -22,7 +22,7 @@ void print_int(char *separator, va_list ap)
 
 /**
 * print_float - prints a float
-* @spearator: separates before printing
+* @separator: separates before printing
 * @ap: arg pointer
 */
 void print_float(char *separator, va_list ap)
@@ -37,7 +37,16 @@ void print_float(char *separator, va_list ap)
 */
 void print_str(char *separator, va_list ap)
 {
-	printf("%s%s", separator, va_arg(ap, char *));
+	char *s = va_arg(ap, char *);
+
+	if (s == NULL)
+	{
+		printf("%s(nil)", separator);
+	}
+	else
+	{
+		printf("%s%s", separator, s);
+	}
 }
 
 /**
