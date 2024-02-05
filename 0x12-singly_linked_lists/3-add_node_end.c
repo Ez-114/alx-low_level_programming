@@ -19,15 +19,15 @@ unsigned int _strlen(const char *s)
 }
 
 /**
-* add_node - adds a new node to the beginning of a given list
+* add_node_end - adds a new node to the end of a given list
 * @head: head of a given list
 * @str: string
 *
 * Return: address of the new node
 */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *new_node;
+	list_t *new_node, *current;
 	unsigned int s_len = 0;
 
 	/* init the new node */
@@ -47,6 +47,7 @@ list_t *add_node(list_t **head, const char *str)
 	/* store values */
 	new_node->str = strdup(str);
 	new_node->len = s_len;
+	new_node->next = NULL;
 
 	/* add the new node to the list */
 	if (!(*head)) /* means the list is empty */
@@ -55,8 +56,11 @@ list_t *add_node(list_t **head, const char *str)
 	}
 	else
 	{
-		new_node->next = (*head);
-		(*head) = new_node;
+		current = (*head);
+		while (current->next != NULL)
+			current = current->next;
+
+		current->next = new_node;
 	}
 	return (new_node);
 }
