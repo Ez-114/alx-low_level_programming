@@ -9,7 +9,7 @@ void free_listint2(listint_t **head)
 {
 	listint_t *current_node = NULL, *temp_node = NULL;
 
-	if ((*head) == NULL)
+	if ((*head) == NULL || head == NULL)
 		return; /* means the list is already empty */
 
 	current_node = (*head);
