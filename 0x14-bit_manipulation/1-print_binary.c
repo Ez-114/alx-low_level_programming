@@ -6,15 +6,18 @@
 */
 void print_binary(unsigned long int n)
 {
-	int pos = (sizeof(unsigned long int) * 8) - 1;
+	int pos = sizeof(unsigned long int) * 8, printed = 0;
 
 	while (pos)
 	{
-		if (n & (1UL << pos))
+		if (n & (1UL << --pos))
+		{
 			_putchar('1');
-		else
+			printed++;
+		}
+		else if (printed)
 			_putchar('0');
-		pos--;
 	}
-	_putchar('\n');
+	if (!printed)
+		_putchar('0');
 }
