@@ -14,15 +14,15 @@
 */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t fd = open(filename, O_RDONLY);
-	size_t l = 0; /* actuall read and printed letters */
+	int fd = open(filename, O_RDONLY);
+	ssize_t l = 0; /* actuall read and printed letters */
 	char buffer[1024];
 
 	if (fd == -1 || filename == NULL || letters == 0)
 		return (0);
 
-	l = read(fd, buffer, letters);
-	l = write(STDOUT_FILENO, buffer, l);
+	l = read(fd, &buffer[0], letters);
+	l = write(STDOUT_FILENO, &buffer[0], l);
 
 	close(fd);
 	return (l);
