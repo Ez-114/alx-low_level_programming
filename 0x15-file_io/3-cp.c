@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define ERR_CLOSE "Error: Can't close %d\n"
+
 /**
  * copy_contents - copy the content from one file to another
  * @fd_from: file descriptor of source file
@@ -86,8 +88,12 @@ int cp_file(char *file_from, char *file_to)
 	}
 
 	/* On success close files and free buffer */
-	close(fd_from);
-	close(fd_to);
+	fd_from = close(fd_from);
+	fd_to = close(fd_to);
+	if (fd_from)
+		dprintf(STDERR_FILENO, ERR_CLOSE, fd_from), exit(100);
+	if (fd_to)
+		dprintf(STDERR_FILENO, ERR_CLOSE, fd_to), exit(100);
 	return (1);
 }
 
@@ -100,15 +106,12 @@ int cp_file(char *file_from, char *file_to)
 */
 int main(int ac, char **av)
 {
-	int res;
-
 	if (ac != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
-	res = cp_file(av[1], av[2]);
-	printf("-> %i)\n", res);
+	cp_file(av[1], av[2]);
 	return (0);
 }
