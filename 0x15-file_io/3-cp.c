@@ -45,9 +45,9 @@ int cp_file(char *file_from, char *file_to)
 
 	fd_from = close(fd_from);
 	fd_to = close(fd_to);
-	if (fd_from)
+	if (fd_from == -1)
 		dprintf(STDERR_FILENO, ERR_CLOSE, fd_from), exit(100);
-	if (fd_to)
+	if (fd_to == -1)
 		dprintf(STDERR_FILENO, ERR_CLOSE, fd_to), exit(100);
 	return (1);
 }
