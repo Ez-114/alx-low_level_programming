@@ -3,47 +3,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#define USAGE "Usage: cp file_from file_to\n"
+#define ERR_READ "Error: Can't read from file %s\n"
+#define ERR_WRITE "Error: Can't write to %s\n"
 #define ERR_CLOSE "Error: Can't close %d\n"
-
-/**
- * copy_contents - copy the content from one file to another
- * @fd_from: file descriptor of source file
- * @fd_to: file descriptor of destination file
- *
- * Return: 1 on success
-*/
-int copy_contents(int fd_from, int fd_to)
-{
-	ssize_t bytes_read = 0, bytes_write = 0;
-	char *buffer = NULL;
-
-	/* allocate space to the buffer */
-	buffer = malloc(1024 * sizeof(char));
-	if (buffer == NULL)
-	{
-		dprintf(STDERR_FILENO, "Error: Buffer allocation failure.\n");
-		close(fd_from);
-		close(fd_to);
-		exit(101);
-	}
-
-	/* read from file_from 1024 byte and write them to file_to */
-	do {
-		bytes_read = read(fd_from, buffer, sizeof(buffer));
-		bytes_write = write(fd_to, buffer, bytes_read);
-
-		/* error handling */
-		if (bytes_write != bytes_read || bytes_read == -1 || bytes_write == -1)
-		{
-			free(buffer);
-			return (100);
-		}
-
-	} while (bytes_read > 0);
-
-	free(buffer);
-	return (1);
-}
 
 /**
  * cp_file - copies content from one file to another
@@ -54,40 +17,32 @@ int copy_contents(int fd_from, int fd_to)
 */
 int cp_file(char *file_from, char *file_to)
 {
-	/* init variables */
-	int fd_from, fd_to, r_val;
+	int fd_from, fd_to;
+	ssize_t bytes = 0;
+	char buffer[1024];
 
-	/* check for files */
-	if (file_from == NULL || file_to == NULL)
-		return (-1);
-
-	/* try open file_from */
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, ERR_READ, file_from);
 		exit(98);
 	}
 
-	/* try open file_to */
 	fd_to = open(file_to, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		dprintf(STDERR_FILENO, ERR_WRITE, file_to);
 		close(fd_from);
 		exit(99);
 	}
 
-	r_val = copy_contents(fd_from, fd_to);
-	if (r_val == 100)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		close(fd_from);
-		close(fd_to);
-		exit(100);
-	}
+	while ((bytes = read(fd_from, buffer, 1024)) > 0)
+		if (write(fd_to, buffer, bytes) != bytes)
+			dprintf(STDERR_FILENO, ERR_WRITE, file_to), exit(99);
 
-	/* On success close files and free buffer */
+	if (bytes == -1)
+		dprintf(STDERR_FILENO, ERR_READ, file_from), exit(98);
+
 	fd_from = close(fd_from);
 	fd_to = close(fd_to);
 	if (fd_from)
