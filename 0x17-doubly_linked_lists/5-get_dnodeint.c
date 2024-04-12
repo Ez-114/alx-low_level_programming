@@ -14,7 +14,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 	if (!head)
 		return (NULL);
 
-	while (head->next)
+	while (head)
 	{
 		current = head;
 		if (curr_idx == index)
