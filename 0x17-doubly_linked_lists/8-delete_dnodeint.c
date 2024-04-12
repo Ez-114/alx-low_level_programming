@@ -27,7 +27,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	while (curr_node)
 	{
-		if (curr_node->next == NULL && curr_idx <= index)
+		if (curr_node->next == NULL && curr_idx == index)
 		{
 			curr_node->prev->next = NULL;
 			free(curr_node);
