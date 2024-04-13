@@ -5,7 +5,7 @@
   *
   * Return: Always 1 (Success)
   */
-int _puts(void)
+void _puts(char *s)
 {
-	return (1);
+	return;
 }
